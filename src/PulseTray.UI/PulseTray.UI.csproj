@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="..\PulseTray.Configuration\PulseTray.Configuration.csproj" />
+    <ProjectReference Include="..\PulseTray.Core\PulseTray.Core.csproj" />
+    <ProjectReference Include="..\PulseTray.Data\PulseTray.Data.csproj" />
+    <ProjectReference Include="..\PulseTray.Notifications\PulseTray.Notifications.csproj" />
+  </ItemGroup>
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+</Project>

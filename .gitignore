@@ -1,0 +1,92 @@
+# =========================
+# Build
+# =========================
+bin/
+obj/
+out/
+publish/
+artifacts/
+
+# =========================
+# Visual Studio
+# =========================
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# =========================
+# Rider / JetBrains
+# =========================
+.idea/
+
+# =========================
+# VSCode
+# =========================
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# =========================
+# Logs
+# =========================
+*.log
+
+# =========================
+# Temp Files
+# =========================
+*.tmp
+*.temp
+*.cache
+
+# =========================
+# NuGet
+# =========================
+*.nupkg
+packages/
+.nuget/
+
+# =========================
+# Publish / Release
+# =========================
+*.publishsettings
+
+# =========================
+# Windows
+# =========================
+Thumbs.db
+Desktop.ini
+
+# =========================
+# Environment / Secrets
+# =========================
+appsettings.Development.json
+appsettings.Local.json
+.env
+.env.*
+
+# =========================
+# Database Credentials
+# =========================
+config.local.json
+database.local.json
+secrets.json
+
+# =========================
+# JetBrains ReSharper
+# =========================
+_ReSharper*/
+*.DotSettings.user
+
+# =========================
+# Test Results
+# =========================
+TestResults/
+
+# =========================
+# Generated Files
+# =========================
+Generated/
