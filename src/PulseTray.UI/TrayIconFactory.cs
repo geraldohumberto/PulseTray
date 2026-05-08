@@ -9,30 +9,31 @@ internal static class TrayIconFactory
         using var bitmap = new Bitmap(32, 32);
         using var graphics = Graphics.FromImage(bitmap);
         graphics.Clear(hasError || results.Any(result => result.IsAlert) ? Color.FromArgb(190, 30, 45) : Color.FromArgb(34, 139, 84));
-        graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
-        graphics.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-
         var label = BuildLabel(results, hasError);
         using var font = CreateFittingFont(graphics, label);
-        using var brush = new SolidBrush(Color.White);
-        using var format = new StringFormat
-        {
-            Alignment = StringAlignment.Center,
-            LineAlignment = StringAlignment.Center,
-            FormatFlags = StringFormatFlags.NoWrap
-        };
-
-        graphics.DrawString(label, font, brush, new RectangleF(1, 0, 30, 32), format);
+        TextRenderer.DrawText(
+            graphics,
+            label,
+            font,
+            new Rectangle(0, -1, 32, 34),
+            Color.White,
+            TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter | TextFormatFlags.NoPadding | TextFormatFlags.SingleLine);
         return Icon.FromHandle(bitmap.GetHicon());
     }
 
     private static Font CreateFittingFont(Graphics graphics, string label)
     {
-        for (var size = 24; size >= 8; size--)
+        for (var size = 31; size >= 9; size--)
         {
             var font = new Font("Segoe UI", size, FontStyle.Bold, GraphicsUnit.Pixel);
-            var measured = graphics.MeasureString(label, font);
-            if (measured.Width <= 30 && measured.Height <= 31)
+            var measured = TextRenderer.MeasureText(
+                graphics,
+                label,
+                font,
+                Size.Empty,
+                TextFormatFlags.NoPadding | TextFormatFlags.SingleLine);
+
+            if (measured.Width <= 32 && measured.Height <= 34)
             {
                 return font;
             }
@@ -40,7 +41,7 @@ internal static class TrayIconFactory
             font.Dispose();
         }
 
-        return new Font("Segoe UI", 8, FontStyle.Bold, GraphicsUnit.Pixel);
+        return new Font("Segoe UI", 9, FontStyle.Bold, GraphicsUnit.Pixel);
     }
 
     private static string BuildLabel(IReadOnlyCollection<QueryResult> results, bool hasError)
