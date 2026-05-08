@@ -2,6 +2,18 @@
 
 PulseTray e uma aplicacao leve para Windows que monitora consultas SQL em tempo real diretamente na bandeja do sistema.
 
+## Baixar o executavel
+
+O projeto ja gera um executavel para Windows automaticamente pelo GitHub Actions.
+
+1. Acesse a aba **Actions** do repositorio: https://github.com/geraldohumberto/PulseTray/actions
+2. Abra o ultimo workflow **Build PulseTray** com status verde.
+3. No fim da pagina, em **Artifacts**, baixe **PulseTray-win-x64**.
+4. Extraia o arquivo ZIP.
+5. Execute **PulseTray.UI.exe**.
+
+O executavel nao fica salvo diretamente no codigo-fonte do repositorio. Ele e gerado a cada build e disponibilizado como artefato do GitHub Actions.
+
 ## Funcionalidades
 
 - Aplicativo Windows Forms com icone na System Tray.
